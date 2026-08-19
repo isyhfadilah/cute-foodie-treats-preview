@@ -25,30 +25,38 @@
 
   <div class="wrap">
     <div class="gallery" id="gallery">
-      <div class="g-item"><img src="assets/bingsu.webp" alt="Bingsu" loading="eager" decoding="async"></div>
-      <div class="g-item"><img src="assets/butter-tteok.webp" alt="Butter Tteok" loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/cilembu-sweet-potato.webp" alt="Cilembu Sweet Potato" loading="lazy"
-          decoding="async"></div>
-      <div class="g-item"><img src="assets/dubai-chewy-cookie.webp" alt="Dubai Chewy Cookie" loading="lazy"
-          decoding="async"></div>
-      <div class="g-item"><img src="assets/dubai-style-chocolate-bar.webp" alt="Dubai Style Chocolate Bar"
-          loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/matcha-mochi.webp" alt="Matcha Mochi" loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/matcha-strawberry-dessert.webp" alt="Matcha Strawberry Dessert"
-          loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/pistachio-crinkle-cookie.webp" alt="Pistachio Crinkle Cookie" loading="lazy"
-          decoding="async"></div>
-      <div class="g-item"><img src="assets/pistachio-kunafa.webp" alt="Pistachio Kunafa" loading="lazy"
-          decoding="async"></div>
-      <div class="g-item"><img src="assets/salt-bread.webp" alt="Salt Bread" loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/strawberry-mochi-donut.webp" alt="Strawberry Mochi Donut" loading="lazy"
-          decoding="async"></div>
-      <div class="g-item"><img src="assets/tanghulu.webp" alt="Tanghulu" loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/tiramisu-sodok.webp" alt="Tiramisu Sodok" loading="lazy" decoding="async">
+      <div class="g-item"><img src="assets/preview/bingsu.webp" alt="Bingsu" loading="eager" decoding="async"
+          draggable="false">
       </div>
-      <div class="g-item"><img src="assets/ube-halaya.webp" alt="Ube Halaya" loading="lazy" decoding="async"></div>
-      <div class="g-item"><img src="assets/ube-matcha-dessert.webp" alt="Ube Matcha Dessert" loading="lazy"
-          decoding="async"></div>
+      <div class="g-item"><img src="assets/preview/butter-tteok.webp" alt="Butter Tteok" loading="lazy" decoding="async"
+          draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/cilembu-sweet-potato.webp" alt="Cilembu Sweet Potato" loading="lazy"
+          decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/dubai-chewy-cookie.webp" alt="Dubai Chewy Cookie" loading="lazy"
+          draggable="false" decoding="async"></div>
+      <div class="g-item"><img src="assets/preview/dubai-style-chocolate-bar.webp" alt="Dubai Style Chocolate Bar"
+          loading="lazy" decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/matcha-mochi.webp" alt="Matcha Mochi" loading="lazy" decoding="async"
+          draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/matcha-strawberry-dessert.webp" alt="Matcha Strawberry Dessert"
+          loading="lazy" decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/pistachio-crinkle-cookie.webp" alt="Pistachio Crinkle Cookie"
+          loading="lazy" decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/pistachio-kunafa.webp" alt="Pistachio Kunafa" loading="lazy"
+          decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/salt-bread.webp" alt="Salt Bread" loading="lazy" decoding="async"
+          draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/strawberry-mochi-donut.webp" alt="Strawberry Mochi Donut"
+          loading="lazy" decoding="async" draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/tanghulu.webp" alt="Tanghulu" loading="lazy" decoding="async"
+          draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/tiramisu-sodok.webp" alt="Tiramisu Sodok" loading="lazy"
+          decoding="async" draggable="false">
+      </div>
+      <div class="g-item"><img src="assets/preview/ube-halaya.webp" alt="Ube Halaya" loading="lazy" decoding="async"
+          draggable="false"></div>
+      <div class="g-item"><img src="assets/preview/ube-matcha-dessert.webp" alt="Ube Matcha Dessert" loading="lazy"
+          decoding="async" draggable="false"></div>
     </div>
     <!-- <p class="gallery-foot">15 high-resolution, transparent PNGs — all included in the bundle</p> -->
   </div>
@@ -56,6 +64,23 @@
   <footer>
     <p>© 2026 Cute Foodie Treats. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+    document.addEventListener('dragstart', (event) => event.preventDefault());
+    document.addEventListener('selectstart', (event) => {
+      if (event.target.closest('.gallery')) event.preventDefault();
+    });
+    document.addEventListener('copy', (event) => {
+      if (event.target.closest('.gallery')) event.preventDefault();
+    });
+    document.addEventListener('keydown', (event) => {
+      const key = event.key.toLowerCase();
+      if ((event.ctrlKey || event.metaKey) && ['s', 'u', 'c'].includes(key)) {
+        event.preventDefault();
+      }
+    });
+  </script>
 
 </body>
 

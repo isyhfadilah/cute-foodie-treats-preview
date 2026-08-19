@@ -111,6 +111,7 @@ a {
 }
 
 .g-item {
+    position: relative;
     background: var(--paper);
     border-radius: 20px;
     aspect-ratio: 1/1;
@@ -121,6 +122,22 @@ a {
     transition: transform .2s ease;
 }
 
+.g-item::after {
+    content: 'CUTE FOODIE TREATS  •  PREVIEW';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgba(58, 42, 52, 0.24);
+    font-family: 'Quicksand', sans-serif;
+    font-size: clamp(9px, 1.15vw, 13px);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    transform: translate(-50%, -50%) rotate(-28deg);
+}
+
 .g-item:hover {
     transform: scale(1.035);
 }
@@ -129,6 +146,9 @@ a {
     width: 78%;
     height: 78%;
     object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .gallery-foot {
